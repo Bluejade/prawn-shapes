@@ -1,0 +1,15 @@
+= Shapes library for Prawn
+
+Just stars thus far
+
+= Usage
+
+  require 'prawn/graphics/star'
+
+  pdf.star([x, y], :radius => r)
+
+The built in prawn magic works:
+
+  pdf.stroke_star([x, y], :radius => r)
+  pdf.fill_star([x, y], :radius => r)
+  pdf.fill_and_stroke_star([x, y], :radius => r)
