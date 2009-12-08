@@ -1,11 +1,11 @@
 module Prawn
   module Graphics
-    def star point, options
+    def star(point, options)
       x, y = point
       polygon(*star_points(point, options))
     end
 
-    def half_star point, options
+    def half_star(point, options)
       points = star_points(point, options)
       case options[:side]
       when :left
@@ -13,8 +13,6 @@ module Prawn
       when :right
         points.slice!(6..9)
       end
-      puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-      puts points.inspect
       polygon(*points)
     end
 
