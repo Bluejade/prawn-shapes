@@ -1,6 +1,6 @@
 = Shapes library for Prawn
 
-Just stars thus far
+Just stars, arcs, and pie slices thus far
 
 = Usage
 
@@ -8,8 +8,19 @@ Just stars thus far
 
   pdf.star([x, y], :radius => r)
 
+  require 'prawn/graphics/arc'
+
+  pdf.arc_around([x, y], :radius => r, :start_angle => 30, :end_angle => 60)
+  pdf.pie_slice([x, y], :radius => r, :start_angle => 45, :end_angle => 135)
+
 The built in prawn magic works:
 
   pdf.stroke_star([x, y], :radius => r)
   pdf.fill_star([x, y], :radius => r)
   pdf.fill_and_stroke_star([x, y], :radius => r)
+
+
+= Examples
+
+http://mindlev.wordpress.com/files/2009/12/star.pdf
+http://mindlev.wordpress.com/files/2009/12/arc.pdf
