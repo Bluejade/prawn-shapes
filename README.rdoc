@@ -22,6 +22,6 @@ The built in prawn magic works:
 
 = Examples
 
-[stars](http://mindlev.wordpress.com/files/2009/12/star.pdf)
+stars: http://mindlev.wordpress.com/files/2009/12/star.pdf
 
-[arcs and pies](http://mindlev.wordpress.com/files/2009/12/arc.pdf)
+arcs and pies: http://mindlev.wordpress.com/files/2009/12/arc.pdf
