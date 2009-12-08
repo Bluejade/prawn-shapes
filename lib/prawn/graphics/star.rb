@@ -13,7 +13,9 @@ module Prawn
       when :right
         points.slice!(6..9)
       end
-      polygon(points)
+      puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+      puts points.inspect
+      polygon(*points)
     end
 
     private
