@@ -22,3 +22,21 @@ describe 'Graphics#arc_around' do
     curve.coords.length.should > 0
   end
 end
+
+describe 'Graphics#semi_circle' do
+  it 'should work' do
+    create_pdf
+    @pdf.semi_circle([100, 100], :radius => 50, :side => :left)
+    curve = PDF::Inspector::Graphics::Curve.analyze(@pdf.render)
+    curve.coords.length.should > 0
+  end
+end
+
+describe 'Graphics#quarter_circle' do
+  it 'should work' do
+    create_pdf
+    @pdf.quarter_circle([100, 100], :radius => 50, :quadrant => 2)
+    curve = PDF::Inspector::Graphics::Curve.analyze(@pdf.render)
+    curve.coords.length.should > 0
+  end
+end

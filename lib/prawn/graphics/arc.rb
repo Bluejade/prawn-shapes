@@ -1,5 +1,53 @@
 module Prawn
   module Graphics
+    # options must include :radius and :side
+    # side is either :left or :right
+    # see pie_slice for explanation of optional
+    # :stroke_both_sides option
+    #
+    def semi_circle(center, options)
+      case options[:side]
+      when :left
+        start_angle = 90
+        end_angle = 270
+      when :right
+        start_angle = 270
+        end_angle = 90
+      end
+      pie_slice(center,
+                :radius => options[:radius],
+                :start_angle => start_angle,
+                :end_angle => end_angle,
+                :stroke_both_sides => options[:stroke_both_sides])
+    end
+
+    # options must include :radius and :quadrant
+    # quadrant is 1, 2, 3, or 4
+    # see pie_slice for explanation of optional
+    # :stroke_both_sides option
+    #
+    def quarter_circle(center, options)
+      case options[:quadrant]
+      when 1
+        start_angle = 0
+        end_angle = 90
+      when 2
+        start_angle = 90
+        end_angle = 180
+      when 3
+        start_angle = 180
+        end_angle = 270
+      when 4
+        start_angle = 270
+        end_angle = 360
+      end
+      pie_slice(center,
+                :radius => options[:radius],
+                :start_angle => start_angle,
+                :end_angle => end_angle,
+                :stroke_both_sides => options[:stroke_both_sides])
+    end
+
     # options must include :radius, :start_angle, and :end_angle
     # startAngle and endAngle are in degrees
     # if an optional :stroke_both_sides option is true, then both

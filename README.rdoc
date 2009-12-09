@@ -1,6 +1,12 @@
 = Shapes library for Prawn
 
-Just stars, arcs, and pie slices thus far
+Available thus far:
+- star
+- half_star
+- arc
+- pie_slice
+- semi_circle
+- quarter_circle
 
 = Usage
 
@@ -12,6 +18,8 @@ Just stars, arcs, and pie slices thus far
 
   pdf.arc_around([x, y], :radius => r, :start_angle => 30, :end_angle => 60)
   pdf.pie_slice([x, y], :radius => r, :start_angle => 45, :end_angle => 135)
+  pdf.semi_circle([x, y], :radius => r, :side => :left)
+  pdf.quarter_circle([x, y], :radius => r, :quadrant => 3)
 
 The built in prawn magic works:
 
@@ -19,6 +27,7 @@ The built in prawn magic works:
   pdf.fill_star([x, y], :radius => r)
   pdf.fill_and_stroke_star([x, y], :radius => r)
 
+See the examples directory for further usage examples.
 
 = Examples
 
