@@ -23,10 +23,10 @@ describe 'Graphics#arc_around' do
   end
 end
 
-describe 'Graphics#semi_circle' do
+describe 'Graphics#half_circle' do
   it 'should work' do
     create_pdf
-    @pdf.semi_circle([100, 100], :radius => 50, :side => :left)
+    @pdf.half_circle([100, 100], :radius => 50, :side => :left)
     curve = PDF::Inspector::Graphics::Curve.analyze(@pdf.render)
     curve.coords.length.should > 0
   end

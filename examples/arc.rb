@@ -62,14 +62,14 @@ Prawn::Document.generate("arc.pdf") do
   center = [bounds.width * 0.25, bounds.height * 0.60]
 
   self.fill_color = 'ddddff'
-  fill_semi_circle(center, :radius => radius, :side => :left)
+  fill_half_circle(center, :radius => radius, :side => :left)
   self.fill_color = 'ffdddd'
-  fill_semi_circle(center, :radius => radius, :side => :right)
+  fill_half_circle(center, :radius => radius, :side => :right)
 
   self.stroke_color = '0000ff'
-  stroke_semi_circle(center, :radius => radius, :side => :left)
+  stroke_half_circle(center, :radius => radius, :side => :left)
   self.stroke_color = 'ff0000'
-  stroke_semi_circle(center, :radius => radius, :side => :right)
+  stroke_half_circle(center, :radius => radius, :side => :right)
   ####### end:Semi-Circles
   
   ####### Quarter-Circles

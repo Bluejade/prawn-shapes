@@ -5,7 +5,7 @@ module Prawn
     # see pie_slice for explanation of optional
     # :stroke_both_sides option
     #
-    def semi_circle(center, options)
+    def half_circle(center, options)
       case options[:side]
       when :left
         start_angle = 90

@@ -5,7 +5,7 @@ Available thus far:
 - half_star
 - arc
 - pie_slice
-- semi_circle
+- half_circle
 - quarter_circle
 
 = Usage
@@ -18,7 +18,7 @@ Available thus far:
 
   pdf.arc_around([x, y], :radius => r, :start_angle => 30, :end_angle => 60)
   pdf.pie_slice([x, y], :radius => r, :start_angle => 45, :end_angle => 135)
-  pdf.semi_circle([x, y], :radius => r, :side => :left)
+  pdf.half_circle([x, y], :radius => r, :side => :left)
   pdf.quarter_circle([x, y], :radius => r, :quadrant => 3)
 
 The built in prawn magic works:
@@ -34,3 +34,7 @@ See the examples directory for further usage examples.
 stars: http://mindlev.wordpress.com/files/2009/12/star.pdf
 
 arcs and pies: http://mindlev.wordpress.com/files/2009/12/arc1.pdf
+
+= Changelog
+
+2009-12-15 - renamed semi_circle to half_circle because it seems more of a kind with quarter_circle
