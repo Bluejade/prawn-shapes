@@ -1,6 +1,6 @@
 .*.sw?
 nbproject
-pkg 
+pkg
 .rvmrc
 .bundle
 Gemfile.lock
