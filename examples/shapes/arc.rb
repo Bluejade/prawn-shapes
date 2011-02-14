@@ -1,6 +1,5 @@
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '.'))
-
-require 'example_helper'
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", ".."))
+require 'examples/example_helper'
 require 'prawn/graphics/arc'
 
 Prawn::Document.generate("arc.pdf") do

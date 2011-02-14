@@ -139,7 +139,7 @@ module Prawn
       quadrants.times do |i|
         start_angle = overall_start_angle + Math::PI * 0.5 * i
         
-        if i == quadrants - 1 : end_angle = overall_end_angle
+        if i == quadrants - 1 then end_angle = overall_end_angle
         else end_angle = start_angle + Math::PI * 0.5
         end
         

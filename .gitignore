@@ -1,0 +1,9 @@
+.*.sw?
+nbproject
+pkg 
+.rvmrc
+.bundle
+Gemfile.lock
+drop_to_console.rb
+manual.pdf
+output
