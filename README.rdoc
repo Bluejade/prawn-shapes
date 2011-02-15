@@ -38,4 +38,5 @@ arcs and pies: http://mindlev.wordpress.com/files/2009/12/arc1.pdf
 = Changelog
 
 2009-12-15 - renamed semi_circle to half_circle because it seems more of a kind with quarter_circle
+
 2011-02-14 - fixed syntax for Ruby 1.9. incorporated Bundler
