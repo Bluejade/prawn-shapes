@@ -1,7 +1,7 @@
  # encoding: utf-8
 require File.join(File.expand_path(File.dirname(__FILE__)), "spec_helper")
 
-require 'prawn/graphics/star'
+require 'prawn_shapes/star'
 
 describe 'Graphics#star' do
   it 'should work' do

@@ -1,6 +1,6 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", ".."))
 require 'examples/example_helper'
-require 'prawn/graphics/arc'
+require 'prawn_shapes/arc'
 
 Prawn::Document.generate("arc.pdf") do
   radius = 75

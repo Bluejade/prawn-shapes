@@ -1,7 +1,7 @@
 # encoding: utf-8
 require File.join(File.expand_path(File.dirname(__FILE__)), "spec_helper")
 
-require 'prawn/graphics/arc'
+require 'prawn_shapes/arc'
 
 describe 'Graphics#pie_slice' do
   it 'should work' do

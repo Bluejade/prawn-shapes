@@ -1,6 +1,6 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", ".."))
 require 'examples/example_helper'
-require 'prawn/graphics/star'
+require 'prawn_shapes/star'
 
 Prawn::Document.generate("star.pdf") do
   self.stroke_color = '0000ff'
