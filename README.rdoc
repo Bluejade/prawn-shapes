@@ -10,11 +10,13 @@ Available thus far:
 
 = Usage
 
-  require 'prawn/graphics/star'
+Install the prawn_shapes gem, then:
+
+  require 'prawn_shapes'
+
+And:
 
   pdf.star([x, y], :radius => r)
-
-  require 'prawn/graphics/arc'
 
   pdf.arc_around([x, y], :radius => r, :start_angle => 30, :end_angle => 60)
   pdf.pie_slice([x, y], :radius => r, :start_angle => 45, :end_angle => 135)
@@ -31,9 +33,9 @@ See the examples directory for further usage examples.
 
 = Examples
 
-stars: http://mindlev.wordpress.com/files/2009/12/star.pdf
+stars: https://github.com/downloads/Bluejade/prawn-shapes/star.pdf
 
-arcs and pies: http://mindlev.wordpress.com/files/2009/12/arc1.pdf
+arcs and pies: https://github.com/downloads/Bluejade/prawn-shapes/arc.pdf
 
 = Changelog
 
