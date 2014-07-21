@@ -13,6 +13,36 @@ describe 'Graphics#pie_slice' do
   end
 end
 
+describe 'Graphics#stroke_pie_slice' do
+  it 'should work' do
+    create_pdf
+    @pdf.stroke_pie_slice([100, 100], :radius => 50,
+                   :start_angle => 0, :end_angle => 90)
+    curve = PDF::Inspector::Graphics::Curve.analyze(@pdf.render)
+    curve.coords.length.should > 0
+  end
+end
+
+describe 'Graphics#fill_pie_slice' do
+  it 'should work' do
+    create_pdf
+    @pdf.fill_pie_slice([100, 100], :radius => 50,
+                   :start_angle => 0, :end_angle => 90)
+    curve = PDF::Inspector::Graphics::Curve.analyze(@pdf.render)
+    curve.coords.length.should > 0
+  end
+end
+
+describe 'Graphics#fill_and_stroke_pie_slice' do
+  it 'should work' do
+    create_pdf
+    @pdf.fill_and_stroke_pie_slice([100, 100], :radius => 50,
+                   :start_angle => 0, :end_angle => 90)
+    curve = PDF::Inspector::Graphics::Curve.analyze(@pdf.render)
+    curve.coords.length.should > 0
+  end
+end
+
 describe 'Graphics#arc_around' do
   it 'should work' do
     create_pdf

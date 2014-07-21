@@ -5,10 +5,11 @@ require "bundler"
 Bundler.setup
 
 require "prawn"
-require "test/spec"
+require "rspec"
 require "mocha"
 require "pdf/reader"
 require "pdf/inspector"
+require 'pry'
 
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), "..", "lib")
 
@@ -21,4 +22,4 @@ def create_pdf(klass=Prawn::Document)
                    :right_margin  => 0,
                    :top_margin    => 0,
                    :bottom_margin => 0)
-end    
+end

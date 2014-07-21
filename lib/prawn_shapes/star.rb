@@ -16,6 +16,13 @@ module Prawn
       polygon(*points)
     end
 
+    ops    = %w{fill stroke fill_and_stroke}
+    shapes = %w{star half_star}
+
+    ops.product(shapes).each do |operation,shape|
+      class_eval "def #{operation}_#{shape}(*args); #{shape}(*args); #{operation}; end"
+    end
+
     private
 
     # radius is the horizontal half-width of the star (the star is the hand-drawn type that looks more natural to the eye, so it does not fit perfectly into a circle)

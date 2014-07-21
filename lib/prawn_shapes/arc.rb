@@ -115,6 +115,13 @@ module Prawn
                            origin[:handle1] || origin[:point]])
     end
 
+    ops    = %w{fill stroke fill_and_stroke}
+    shapes = %w{half_circle quarter_circle pie_slice arc_around open_curve closed_curve}
+
+    ops.product(shapes).each do |operation,shape|
+      class_eval "def #{operation}_#{shape}(*args); #{shape}(*args); #{operation}; end"
+    end
+
     private
 
     def arc_vertices(center, options)
@@ -122,34 +129,34 @@ module Prawn
       start_degrees = options[:start_angle]
       end_degrees = options[:end_angle]
       return if start_degrees == end_degrees
-  
+
       overall_start_angle = (start_degrees % 360.0).to_radians
       overall_end_angle = (end_degrees % 360.0).to_radians
 
       # if the angles are now equal, when they weren't before, then
       # they describe an entire circle
       return circle_at(center, :radius => radius) if overall_start_angle == overall_end_angle
-  
+
       overall_end_angle = overall_end_angle + 2.0 * Math::PI if overall_end_angle < overall_start_angle
-  
+
       delta = overall_end_angle - overall_start_angle
       quadrants = (delta / (Math::PI * 0.5)).ceil
-  
+
       vertices = []
       quadrants.times do |i|
         start_angle = overall_start_angle + Math::PI * 0.5 * i
-        
+
         if i == quadrants - 1 then end_angle = overall_end_angle
         else end_angle = start_angle + Math::PI * 0.5
         end
-        
+
         delta = end_angle - start_angle
         handle_multiplier = KAPPA * delta / (Math::PI * 0.5) * radius
-    
+
         # negate the angles so as to get the stated orientation of angles
         # start_angle = -start_angle
         # end_angle = -end_angle
-    
+
         vertex = {}
         point = [Math.cos(start_angle), Math.sin(start_angle)]
         vertex[:point] = [center[0] + radius * point[0],
@@ -163,7 +170,7 @@ module Prawn
          #stroke_circle_at(vertex[:handle2], :radius => 10)
         # stroke_line(vertex[:point], vertex[:handle1])
         vertices << vertex
-    
+
         vertex = {}
         point = [Math.cos(end_angle), Math.sin(end_angle)]
         vertex[:point] = [center[0] + radius * point[0],
@@ -193,7 +200,7 @@ class Array
     return self if denominator == 0.0
     [self[0] / denominator, self[1] / denominator]
   end
-  
+
   # if :counter_clockwise => true option, then return a new vector
   # that points 90 degrees counterlockwise of aVector with a magnitude
   # of 1.0, otherwise return a new vector that points 90 degrees
