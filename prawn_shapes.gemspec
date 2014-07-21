@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
                        '--main'  << 'README.rdoc' << '-q'
   spec.authors = ["Daniel Nelson"]
   spec.email = ["dnelson@bluejade.com"]
-  spec.add_dependency('prawn', '>=0.11.1')
+  spec.add_dependency('prawn', '~> 1.1.0')
   spec.homepage = "https://github.com/Bluejade/prawn-shapes"
   spec.description = <<END_DESC
   Adds additional vector shapes to Prawn
