@@ -1,5 +1,5 @@
 # Version numbering: http://wiki.github.com/sandal/prawn/development-roadmap
-PRAWN_SHAPES_VERSION = "0.11.1"
+PRAWN_SHAPES_VERSION = "1.1.0"
 
 Gem::Specification.new do |spec|
   spec.name = "prawn_shapes"
