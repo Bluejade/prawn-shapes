@@ -44,3 +44,7 @@ arcs and pies: https://github.com/downloads/Bluejade/prawn-shapes/arc.pdf
 2011-02-14 - fixed syntax for Ruby 1.9. incorporated Bundler
 
 2011-04-05 - added gemspec and published as prawn_shapes. requires Prawn 0.11.1
+
+2014-07-21 - updated for Prawn 1.1
+
+2014-09-22 - updated for Prawn 1.2
