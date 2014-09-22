@@ -1,27 +1,51 @@
-require "rubygems"
-require "bundler"
-Bundler.setup
+# encoding: utf-8
 
-require "rake"
-require "rake/testtask"
+require 'rubygems'
+require 'bundler'
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
+end
+require 'rake'
 
-task :default => [:test]
+require 'jeweler'
+Jeweler::Tasks.new do |gem|
+  # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
+  gem.name = "prawn_shapes"
+  gem.homepage = "https://github.com/Bluejade/prawn-shapes"
+  gem.license = "MIT"
+  gem.summary = %Q{Additional vector shapes for Prawn}
+  gem.description = %Q{Adds additional vector shapes to Prawn}
+  gem.email = "daniel@populr.me"
+  gem.authors = ["Daniel Nelson"]
+  # dependencies defined in Gemfile
+end
+Jeweler::RubygemsDotOrgTasks.new
 
-desc "Run all tests, test-spec, mocha, and pdf-reader required"
-Rake::TestTask.new do |test|
-  # test.ruby_opts  << "-w"  # .should == true triggers a lot of warnings
-  test.libs       << "spec"
-  test.test_files =  Dir[ "spec/*_spec.rb" ]
-  test.verbose    =  true
+require 'rake/testtask'
+Rake::TestTask.new(:test) do |test|
+  test.libs << 'lib' << 'test'
+  test.pattern = 'test/**/test_*.rb'
+  test.verbose = true
 end
 
-desc "run all examples"
-task :examples do
-  mkdir_p "output"
-  examples = Dir["examples/**/*.rb"]
-  t = Time.now
-  puts "Running Examples"
-  examples.each { |file| `ruby -Ilib #{file}` }
-  puts "Ran in #{Time.now - t} s"
-  `mv *.pdf output`
+desc "Code coverage detail"
+task :simplecov do
+  ENV['COVERAGE'] = "true"
+  Rake::Task['test'].execute
+end
+
+task :default => :test
+
+require 'rdoc/task'
+Rake::RDocTask.new do |rdoc|
+  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title = "prawn_shapes #{version}"
+  rdoc.rdoc_files.include('README*')
+  rdoc.rdoc_files.include('lib/**/*.rb')
 end

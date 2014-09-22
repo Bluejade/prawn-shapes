@@ -4,6 +4,7 @@ prawn_version = "1.2.0"
 
 group :develop, :test do
   gem "prawn", ">=#{prawn_version}"
+  gem "jeweler", "~> 2.0.1"
 end
 
 group :test do
