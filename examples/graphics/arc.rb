@@ -20,7 +20,7 @@ Prawn::Document.generate("arc.pdf") do
                     :radius => radius,
                     :start_angle => 130,
                     :end_angle => 30)
-  
+
   self.stroke_color = '0000ff'
   stroke_arc_around(center,
                     :radius => radius,
@@ -37,7 +37,7 @@ Prawn::Document.generate("arc.pdf") do
                     :start_angle => 130,
                     :end_angle => 30)
 
-  
+
   center = [bounds.width * 0.75, bounds.height * 0.85]
   self.stroke_color = '7777777'
   self.fill_color = 'ddddff'
@@ -57,6 +57,21 @@ Prawn::Document.generate("arc.pdf") do
                     :end_angle => 30)
 
 
+
+  center = [bounds.width * 0.5, bounds.height * 0.725]
+  self.stroke_color = '7777777'
+  self.fill_color = 'ddddff'
+  fill_pie_slice(center,
+                :radius => radius,
+                :start_angle => 0,
+                :end_angle => 360)
+  stroke_arc_around(center,
+                :radius => radius,
+                :start_angle => 0,
+                :end_angle => 360)
+
+
+
   ####### Semi-Circles
   center = [bounds.width * 0.25, bounds.height * 0.60]
 
@@ -70,7 +85,7 @@ Prawn::Document.generate("arc.pdf") do
   self.stroke_color = 'ff0000'
   stroke_half_circle(center, :radius => radius, :side => :right)
   ####### end:Semi-Circles
-  
+
   ####### Quarter-Circles
   center = [bounds.width * 0.75, bounds.height * 0.60]
 
@@ -100,7 +115,7 @@ Prawn::Document.generate("arc.pdf") do
            'using stroke_ versus fill_and_stroke:',
            :at => [0, bounds.height * 0.30 + radius + 20],
            :align => :center)
-  
+
   center = [bounds.width * 0.25, bounds.height * 0.30]
   self.fill_color = 'ddddff'
   stroke_quarter_circle(center,
@@ -112,7 +127,7 @@ Prawn::Document.generate("arc.pdf") do
   fill_and_stroke_quarter_circle(center,
                                  :radius => radius,
                                  :quadrant => 1)
-  
+
 
 
 
@@ -121,7 +136,7 @@ Prawn::Document.generate("arc.pdf") do
            'include :stroke_both_sides => true',
            :at => [0, bounds.height * 0.15 + radius + 20],
            :align => :center)
-  
+
   center = [bounds.width * 0.5, bounds.height * 0.15]
   stroke_quarter_circle(center,
                         :radius => radius,

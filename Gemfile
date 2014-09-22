@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-prawn_version = "1.1.0"
+prawn_version = "1.2.0"
 
 group :develop, :test do
   gem "prawn", ">=#{prawn_version}"

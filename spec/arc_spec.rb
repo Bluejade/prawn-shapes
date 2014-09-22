@@ -51,6 +51,16 @@ describe 'Graphics#arc_around' do
     curve = PDF::Inspector::Graphics::Curve.analyze(@pdf.render)
     curve.coords.length.should > 0
   end
+
+  context 'when the specified angles describe an entire circle' do
+    it 'should work' do
+      create_pdf
+      @pdf.arc_around([100, 100], :radius => 50,
+                     :start_angle => 0, :end_angle => 360)
+      curve = PDF::Inspector::Graphics::Curve.analyze(@pdf.render)
+      curve.coords.length.should > 0
+    end
+  end
 end
 
 describe 'Graphics#half_circle' do

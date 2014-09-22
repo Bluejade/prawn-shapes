@@ -135,7 +135,10 @@ module Prawn
 
       # if the angles are now equal, when they weren't before, then
       # they describe an entire circle
-      return circle_at(center, :radius => radius) if overall_start_angle == overall_end_angle
+      if overall_start_angle == overall_end_angle
+        overall_start_angle = 0
+        overall_end_angle = 2.0 * Math::PI
+      end
 
       overall_end_angle = overall_end_angle + 2.0 * Math::PI if overall_end_angle < overall_start_angle
 
@@ -146,16 +149,14 @@ module Prawn
       quadrants.times do |i|
         start_angle = overall_start_angle + Math::PI * 0.5 * i
 
-        if i == quadrants - 1 then end_angle = overall_end_angle
-        else end_angle = start_angle + Math::PI * 0.5
+        if i == quadrants - 1
+          end_angle = overall_end_angle
+        else
+          end_angle = start_angle + Math::PI * 0.5
         end
 
         delta = end_angle - start_angle
         handle_multiplier = KAPPA * delta / (Math::PI * 0.5) * radius
-
-        # negate the angles so as to get the stated orientation of angles
-        # start_angle = -start_angle
-        # end_angle = -end_angle
 
         vertex = {}
         point = [Math.cos(start_angle), Math.sin(start_angle)]
@@ -165,10 +166,6 @@ module Prawn
         vertex[:handle2] = [vertex[:point][0] + handle_multiplier * handle[0],
                             vertex[:point][1] + handle_multiplier * handle[1]]
 
-         #fill_circle_at(center, :radius => 10)
-         #fill_circle_at(vertex[:point], :radius => 10)
-         #stroke_circle_at(vertex[:handle2], :radius => 10)
-        # stroke_line(vertex[:point], vertex[:handle1])
         vertices << vertex
 
         vertex = {}
@@ -178,9 +175,6 @@ module Prawn
         handle = point.unit_perpendicular_vector(:counter_clockwise => true)
         vertex[:handle1] = [vertex[:point][0] + handle_multiplier * handle[0],
                             vertex[:point][1] + handle_multiplier * handle[1]]
-         #fill_circle_at(vertex[:point], :radius => 10)
-         #fill_and_stroke_circle_at(vertex[:handle1], :radius => 10)
-        # stroke_line(vertex[:point], vertex[:handle2])
         vertices << vertex
       end
       vertices
