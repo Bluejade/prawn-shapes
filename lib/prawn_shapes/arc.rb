@@ -128,7 +128,7 @@ module Prawn
       radius = options[:radius]
       start_degrees = options[:start_angle]
       end_degrees = options[:end_angle]
-      return if start_degrees == end_degrees
+      return [] if start_degrees == end_degrees
 
       overall_start_angle = (start_degrees % 360.0).to_radians
       overall_end_angle = (end_degrees % 360.0).to_radians
